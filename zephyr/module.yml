@@ -1,0 +1,5 @@
+name: fff
+build:
+  cmake-ext: True
+  kconfig-ext: True
+
