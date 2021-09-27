@@ -73,16 +73,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -133,12 +133,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\main_c.c" />
     <ClCompile Include="..\..\fff_test_global_c.c" />
     <ClCompile Include="..\..\global_fakes.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\fff.h" />
-    <ClInclude Include="..\..\c_test_framework.h" />
+    <ClInclude Include="..\..\framework\c_test_framework.h" />
     <ClInclude Include="..\..\global_fakes.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

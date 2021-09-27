@@ -12,11 +12,12 @@ $(BUILD_DIR)/global_fakes.o \
 $(BUILD_DIR)/gtest-all.o \
 $(BUILD_DIR)/gtest-main.o
 
-FFF_TEST_C_OBJS = $(BUILD_DIR)/fff_test_c.o
+FFF_TEST_C_OBJS = $(BUILD_DIR)/fff_test_c.o $(BUILD_DIR)/main_c.o
 
 FFF_TEST_GLOBAL_C_OBJS += \
 $(BUILD_DIR)/global_fakes.o \
-$(BUILD_DIR)/fff_test_global_c.o
+$(BUILD_DIR)/fff_test_global_c.o \
+$(BUILD_DIR)/main_c.o
 
 FFF_TEST_CPP_TARGET = $(BUILD_DIR)/fff_test_cpp
 FFF_TEST_C_TARGET = $(BUILD_DIR)/fff_test_c
@@ -24,6 +25,7 @@ FFF_TEST_GLOBAL_C_TARGET = $(BUILD_DIR)/fff_test_glob_c
 FFF_TEST_GLOBAL_CPP_TARGET = $(BUILD_DIR)/fff_test_glob_cpp
 
 LIBS := -lpthread
+INCLUDES := -I../ -I../test/framework/
 # All Target
 all: $(FFF_TEST_CPP_TARGET) $(FFF_TEST_C_TARGET) $(FFF_TEST_GLOBAL_C_TARGET) $(FFF_TEST_GLOBAL_CPP_TARGET)
 
@@ -32,16 +34,16 @@ all: $(FFF_TEST_CPP_TARGET) $(FFF_TEST_C_TARGET) $(FFF_TEST_GLOBAL_C_TARGET) $(F
 $(BUILD_DIR)/%.o: %.cpp
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C++ Compiler'
-	g++ -I../ -O0 -g3 -Wall -DGTEST_USE_OWN_TR1_TUPLE=1 -c -o "$@" "$<"
+	g++ $(INCLUDES) -O0 -g3 -Wall -DGTEST_USE_OWN_TR1_TUPLE=1 -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
 $(BUILD_DIR)/%.o: %.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: GCC C Compiler'
-	gcc -I../ -O0 -g3 -Wall -std=c99 -c -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
+	gcc -v $(INCLUDES) -O0 -g3 -Wall -std=c99 -c -o "$@" "$<"
 
 
 # Link targets
