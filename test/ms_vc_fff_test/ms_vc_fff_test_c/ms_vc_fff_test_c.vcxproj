@@ -20,10 +20,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\fff_test_c.c" />
+    <ClCompile Include="..\..\main_c.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\fff.h" />
-    <ClInclude Include="..\..\c_test_framework.h" />
+    <ClInclude Include="..\..\framework\c_test_framework.h" />
   </ItemGroup>
   <PropertyGroup>
     <CustomBuildBeforeTargets>ClCompile</CustomBuildBeforeTargets>
@@ -81,16 +82,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)..\..\gtest;$(SolutionDir)..\..\;$(SolutionDir)..\..\test\framework;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

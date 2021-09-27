@@ -18,9 +18,12 @@
     <ClCompile Include="..\..\fff_test_c.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\main_c.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\c_test_framework.h">
+    <ClInclude Include="..\..\framework\c_test_framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\fff.h">

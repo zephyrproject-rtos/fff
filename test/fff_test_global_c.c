@@ -25,14 +25,8 @@ void setup()
 #include "test_cases.include"
 
 
-int main()
+void fff_test_suite()
 {
-    setbuf(stdout, NULL);
-    fprintf(stdout, "-------------\n");
-    fprintf(stdout, "Running Tests\n");
-    fprintf(stdout, "-------------\n\n");
-    fflush(0);
-
     /* Run tests */
     RUN_TEST(FFFTestSuite, when_void_func_never_called_then_callcount_is_zero);
     RUN_TEST(FFFTestSuite, when_void_func_called_once_then_callcount_is_one);
@@ -75,10 +69,4 @@ int main()
 
     RUN_TEST(FFFTestSuite, can_capture_upto_20_arguments_correctly);
     RUN_TEST(FFFTestSuite, value_func_can_capture_upto_20_arguments_correctly);
-
-    printf("\n-------------\n");
-    printf("Complete\n");
-    printf("-------------\n\n");
-
-    return 0;
 }

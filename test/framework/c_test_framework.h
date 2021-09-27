@@ -7,8 +7,12 @@
 
 /* Test Framework :-) */
 void setup();
+void fff_test_suite();
+
+#define PRINTF(FMT, ...) printf(FMT, __VA_ARGS__)
+
 #define TEST_F(SUITE, NAME) void NAME()
-#define RUN_TEST(SUITE, TESTNAME) do { printf(" Running %s.%s: \n", #SUITE, #TESTNAME); setup(); TESTNAME(); printf(" SUCCESS\n"); } while (0)
+#define RUN_TEST(SUITE, TESTNAME) do { PRINTF(stdout, " Running %s.%s: \n", #SUITE, #TESTNAME); setup(); TESTNAME(); PRINTF(stdout, " SUCCESS\n"); } while (0)
 #define ASSERT_EQ(A, B) assert((A) == (B))
 #define ASSERT_TRUE(A) assert((A))
 
