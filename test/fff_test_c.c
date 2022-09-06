@@ -6,8 +6,13 @@
 #define OVERRIDE_CALL_HIST_LEN 17u
 #define FFF_CALL_HISTORY_LEN OVERRIDE_CALL_HIST_LEN
 
-#include "fff.h"
+#include "../fff.h"
 #include "c_test_framework.h"
+
+#include <assert.h>
+#include <stdio.h>
+#include <string.h>
+
 
 
 enum MYBOOL { FALSE = 899, TRUE };
@@ -67,8 +72,14 @@ TEST_F(FFFTestSuite, default_constants_can_be_overridden)
 }
 
 DEFINE_FFF_GLOBALS;
-void fff_test_suite()
+int main()
 {
+    setbuf(stdout, NULL);
+    fprintf(stdout, "-------------\n");
+    fprintf(stdout, "Running Tests\n");
+    fprintf(stdout, "-------------\n\n");
+    fflush(0);
+
     /* Run tests */
     RUN_TEST(FFFTestSuite, when_void_func_never_called_then_callcount_is_zero);
     RUN_TEST(FFFTestSuite, when_void_func_called_once_then_callcount_is_one);
@@ -112,4 +123,10 @@ void fff_test_suite()
 
     RUN_TEST(FFFTestSuite, can_capture_upto_20_arguments_correctly);
     RUN_TEST(FFFTestSuite, value_func_can_capture_upto_20_arguments_correctly);
+
+    printf("\n-------------\n");
+    printf("Complete\n");
+    printf("-------------\n\n");
+
+    return 0;
 }
